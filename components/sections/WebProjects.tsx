@@ -98,13 +98,18 @@ export default function WebProjects() {
                   <img
                     src={`/images/web-projects/${project.image.split('/').pop()}`}
                     alt={`${project.title} - Website Screenshot`}
-                    className="w-full h-full object-cover opacity-100 transition-opacity duration-300"
+                    className="w-full h-full object-cover transition-opacity duration-300 relative z-10"
                     loading="lazy"
                     decoding="async"
                     fetchPriority="low"
                     onLoad={(e) => {
                       const target = e.target as HTMLImageElement
                       target.style.opacity = '1'
+                      // Hide placeholder when image loads
+                      const placeholder = target.nextElementSibling as HTMLElement
+                      if (placeholder) {
+                        placeholder.style.display = 'none'
+                      }
                     }}
                     onError={(e) => {
                       const target = e.target as HTMLImageElement
@@ -112,8 +117,16 @@ export default function WebProjects() {
                     }}
                     style={{ opacity: 0, transition: 'opacity 0.3s' }}
                   />
-                  <div className="absolute inset-0 flex items-center justify-center bg-gradient-to-br from-indigo-500/20 to-purple-500/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none">
-                    <span className="text-gray-500 dark:text-gray-500 light:text-gray-400 text-sm">Project Screenshot</span>
+                  {/* Placeholder - Always visible when image not loaded */}
+                  <div className="absolute inset-0 flex items-center justify-center bg-gradient-to-br from-indigo-500/20 to-purple-500/20 z-0">
+                    <div className="text-center">
+                      <div className="w-16 h-16 mx-auto mb-3 bg-indigo-500/30 rounded-lg flex items-center justify-center">
+                        <svg className="w-8 h-8 text-indigo-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z" />
+                        </svg>
+                      </div>
+                      <span className="text-gray-400 dark:text-gray-400 light:text-gray-500 text-sm font-medium">Project Screenshot</span>
+                    </div>
                   </div>
                   <div className="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-6">
                     <div className="w-full">

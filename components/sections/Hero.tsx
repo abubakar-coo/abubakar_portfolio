@@ -22,13 +22,14 @@ export default function Hero() {
         }}
       >
         {/* Dark Overlay for text readability - increased for better visibility control */}
-        <div className="absolute inset-0 bg-black/75 dark:bg-black/70 light:bg-black/50"></div>
+        <div className="absolute inset-0 bg-black/85 dark:bg-black/80 light:bg-black/60"></div>
       </div>
       
       <div className="max-w-7xl mx-auto text-center relative z-10">
         <RevealOnScroll delay={0.2}>
           <motion.h1
-            className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold mb-6 sm:mb-8 text-white dark:text-white light:text-gray-900 light:font-extrabold"
+            className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold mb-6 sm:mb-8 text-white dark:text-white light:text-gray-900 light:font-extrabold drop-shadow-2xl"
+            style={{ textShadow: '0 4px 20px rgba(0, 0, 0, 0.8), 0 2px 10px rgba(0, 0, 0, 0.6)' }}
             initial={{ opacity: 0, y: 15 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.3, delay: 0.05, ease: 'easeOut' }}
@@ -36,7 +37,8 @@ export default function Hero() {
             I Create Digital Experiences
           </motion.h1>
           <motion.p
-            className="text-xl sm:text-2xl md:text-3xl font-semibold mb-4 sm:mb-6 text-indigo-400 dark:text-indigo-400 light:text-indigo-800 light:font-bold"
+            className="text-xl sm:text-2xl md:text-3xl font-semibold mb-4 sm:mb-6 text-indigo-300 dark:text-indigo-300 light:text-indigo-800 light:font-bold drop-shadow-lg"
+            style={{ textShadow: '0 2px 10px rgba(0, 0, 0, 0.7)' }}
             initial={{ opacity: 0, y: 8 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.3, delay: 0.1, ease: 'easeOut' }}
@@ -46,7 +48,8 @@ export default function Hero() {
         </RevealOnScroll>
 
         <motion.p
-          className="text-base sm:text-lg md:text-xl lg:text-2xl text-gray-400 dark:text-gray-400 light:text-gray-800 light:font-medium mb-8 sm:mb-12 max-w-3xl mx-auto leading-relaxed px-4"
+          className="text-base sm:text-lg md:text-xl lg:text-2xl text-gray-200 dark:text-gray-200 light:text-gray-800 light:font-medium mb-8 sm:mb-12 max-w-3xl mx-auto leading-relaxed px-4 drop-shadow-md"
+          style={{ textShadow: '0 2px 8px rgba(0, 0, 0, 0.6)' }}
           initial={{ opacity: 0, y: 8 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.3, delay: 0.15, ease: 'easeOut' }}
