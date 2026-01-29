@@ -66,10 +66,10 @@ const projects: Project[] = [
 
 export default function WebProjects() {
   return (
-    <section id="web-projects" className="py-20 sm:py-24 md:py-32 px-4 sm:px-6 relative">
+    <section id="web-projects" className="py-20 sm:py-24 md:py-32 px-4 sm:px-6 relative bg-gradient-to-b from-gray-900 via-gray-800 to-gray-900 dark:from-gray-900 dark:via-gray-800 dark:to-gray-900 light:from-gray-100 light:via-white light:to-gray-100">
       <div className="max-w-7xl mx-auto">
         <RevealOnScroll delay={0.1}>
-          <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-4 text-center text-white dark:text-white light:text-gray-900 light:font-extrabold">
+          <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-4 text-center text-white dark:text-white light:text-purple-900 light:font-extrabold">
             My Web Projects
           </h2>
         </RevealOnScroll>
@@ -79,7 +79,7 @@ export default function WebProjects() {
         </RevealOnScroll>
 
         <RevealOnScroll delay={0.2}>
-          <p className="text-center text-gray-400 dark:text-gray-400 light:text-gray-800 light:font-medium text-base sm:text-lg mb-12 sm:mb-16 max-w-2xl mx-auto px-4">
+          <p className="text-center text-gray-400 dark:text-gray-400 light:text-purple-800 light:font-medium text-base sm:text-lg mb-12 sm:mb-16 max-w-2xl mx-auto px-4">
             Here are some of the websites I've created. Each project represents hours of
             research, design, and development to deliver exceptional results.
           </p>
@@ -98,27 +98,17 @@ export default function WebProjects() {
                   <img
                     src={`/images/web-projects/${project.image.split('/').pop()}`}
                     alt={`${project.title} - Website Screenshot`}
-                    className="w-full h-full object-cover transition-opacity duration-300 relative z-10"
+                    className="w-full h-full object-cover opacity-100 transition-opacity duration-300 relative z-10"
                     loading="lazy"
                     decoding="async"
                     fetchPriority="low"
-                    onLoad={(e) => {
-                      const target = e.target as HTMLImageElement
-                      target.style.opacity = '1'
-                      // Hide placeholder when image loads
-                      const placeholder = target.nextElementSibling as HTMLElement
-                      if (placeholder) {
-                        placeholder.style.display = 'none'
-                      }
-                    }}
                     onError={(e) => {
                       const target = e.target as HTMLImageElement
                       target.style.display = 'none'
                     }}
-                    style={{ opacity: 0, transition: 'opacity 0.3s' }}
                   />
-                  {/* Placeholder - Always visible when image not loaded */}
-                  <div className="absolute inset-0 flex items-center justify-center bg-gradient-to-br from-indigo-500/20 to-purple-500/20 z-0">
+                  {/* Placeholder - Only visible when image fails to load */}
+                  <div className="absolute inset-0 flex items-center justify-center bg-gradient-to-br from-indigo-500/20 to-purple-500/20 z-0 pointer-events-none">
                     <div className="text-center">
                       <div className="w-16 h-16 mx-auto mb-3 bg-indigo-500/30 rounded-lg flex items-center justify-center">
                         <svg className="w-8 h-8 text-indigo-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">

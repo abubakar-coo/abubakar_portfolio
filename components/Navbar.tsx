@@ -63,7 +63,7 @@ export default function Navbar() {
                     e.preventDefault()
                     handleNavClick(item.href)
                   }}
-                  className="text-gray-300 dark:text-gray-300 light:text-gray-700 hover:text-indigo-400 dark:hover:text-white light:hover:text-indigo-600 transition-colors duration-200 relative group"
+                  className="text-gray-300 dark:text-gray-300 light:text-purple-800 hover:text-indigo-400 dark:hover:text-white light:hover:text-purple-900 transition-colors duration-200 relative group"
                 >
                   {item.name}
                   <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-gradient-to-r from-indigo-400 to-purple-400 group-hover:w-full transition-all duration-200"></span>

@@ -41,10 +41,10 @@ const skillCategories = [
 
 export default function OtherSkills() {
   return (
-    <section id="other-skills" className="py-20 sm:py-24 md:py-32 px-4 sm:px-6 relative">
+    <section id="other-skills" className="py-20 sm:py-24 md:py-32 px-4 sm:px-6 relative bg-gradient-to-b from-gray-900 via-gray-800 to-gray-900 dark:from-gray-900 dark:via-gray-800 dark:to-gray-900 light:from-gray-100 light:via-white light:to-gray-100">
       <div className="max-w-7xl mx-auto">
         <RevealOnScroll delay={0.2}>
-          <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-4 text-center text-white dark:text-white light:text-gray-900 light:font-extrabold">
+          <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-4 text-center text-white dark:text-white light:text-purple-900 light:font-extrabold">
             Other Skills & Expertise
           </h2>
         </RevealOnScroll>
@@ -54,7 +54,7 @@ export default function OtherSkills() {
         </RevealOnScroll>
 
         <RevealOnScroll delay={0.4}>
-          <p className="text-center text-gray-400 dark:text-gray-400 light:text-gray-800 light:font-medium text-base sm:text-lg mb-12 sm:mb-16 max-w-2xl mx-auto px-4">
+          <p className="text-center text-gray-400 dark:text-gray-400 light:text-purple-800 light:font-medium text-base sm:text-lg mb-12 sm:mb-16 max-w-2xl mx-auto px-4">
             Beyond web development and graphic design, I've developed expertise in various
             tools and technologies that enhance my creative capabilities.
           </p>
@@ -68,15 +68,15 @@ export default function OtherSkills() {
               direction="up"
             >
               <div className="glass rounded-2xl p-6 sm:p-8">
-                <h3 className="text-xl sm:text-2xl font-semibold mb-4 sm:mb-6 text-indigo-300 dark:text-indigo-300 light:text-indigo-800 light:font-bold">
+                <h3 className="text-xl sm:text-2xl font-semibold mb-4 sm:mb-6 text-indigo-300 dark:text-indigo-300 light:text-purple-800 light:font-bold">
                   {category.title}
                 </h3>
                 <div className="space-y-6">
                   {category.skills.map((skill, skillIndex) => (
                     <div key={skill.name}>
                       <div className="flex justify-between items-center mb-2">
-                        <span className="text-gray-300 dark:text-gray-300 light:text-gray-900 light:font-semibold font-medium">{skill.name}</span>
-                        <span className="text-gray-500 dark:text-gray-500 light:text-gray-700 light:font-medium text-sm">{skill.level}%</span>
+                        <span className="text-gray-300 dark:text-gray-300 light:text-purple-800 light:font-semibold font-medium">{skill.name}</span>
+                        <span className="text-gray-500 dark:text-gray-500 light:text-purple-700 light:font-medium text-sm">{skill.level}%</span>
                       </div>
                       <div className="h-2 bg-gray-800 dark:bg-gray-800 light:bg-gray-200 rounded-full overflow-hidden">
                         <motion.div
@@ -102,10 +102,10 @@ export default function OtherSkills() {
         {/* Additional Info Section */}
         <RevealOnScroll delay={0.6} direction="up">
           <div className="mt-12 sm:mt-16 glass rounded-2xl p-6 sm:p-8 md:p-12 text-center">
-            <h3 className="text-xl sm:text-2xl font-semibold mb-4 text-indigo-300 dark:text-indigo-300 light:text-indigo-800 light:font-bold">
+            <h3 className="text-xl sm:text-2xl font-semibold mb-4 text-indigo-300 dark:text-indigo-300 light:text-purple-800 light:font-bold">
               Always Learning, Always Creating
             </h3>
-            <p className="text-gray-400 dark:text-gray-400 light:text-gray-800 light:font-medium text-base sm:text-lg max-w-3xl mx-auto leading-relaxed px-4">
+            <p className="text-gray-400 dark:text-gray-400 light:text-purple-700 light:font-medium text-base sm:text-lg max-w-3xl mx-auto leading-relaxed px-4">
               The digital landscape is constantly evolving, and so am I. I'm always exploring
               new tools, techniques, and technologies to expand my skill set and deliver
               cutting-edge solutions. Whether it's mastering a new framework or experimenting
