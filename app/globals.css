@@ -8,11 +8,6 @@
   --background-end-rgb: 15, 15, 15;
 }
 
-.light {
-  --foreground-rgb: 17, 24, 39;
-  --background-start-rgb: 249, 250, 251;
-  --background-end-rgb: 243, 244, 246;
-}
 
 * {
   box-sizing: border-box;
@@ -66,9 +61,6 @@ body {
   will-change: background;
 }
 
-.light .animated-bg {
-  background: linear-gradient(to bottom, #f5f5f5, #ffffff, #f5f5f5);
-}
 
 /* Removed heavy background animations for better performance */
 
@@ -82,10 +74,6 @@ body {
   will-change: background, border-color;
 }
 
-.light .glass {
-  background: rgba(255, 255, 255, 0.9);
-  border: 1px solid rgba(0, 0, 0, 0.15);
-}
 
 /* Magnetic Button Effect */
 .magnetic-button {
@@ -180,9 +168,6 @@ img[loading="lazy"] {
   transition: background 0.3s ease;
 }
 
-.light ::-webkit-scrollbar-track {
-  background: #f9fafb;
-}
 
 ::-webkit-scrollbar-thumb {
   background: rgba(99, 102, 241, 0.5);

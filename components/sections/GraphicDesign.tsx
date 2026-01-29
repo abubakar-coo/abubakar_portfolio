@@ -66,10 +66,10 @@ const designProjects: DesignProject[] = [
 
 export default function GraphicDesign() {
   return (
-    <section id="graphic-design" className="py-20 sm:py-24 md:py-32 px-4 sm:px-6 relative bg-gradient-to-b from-gray-950 via-gray-900 to-gray-950 dark:from-gray-950 dark:via-gray-900 dark:to-gray-950 light:from-gray-50 light:via-white light:to-gray-50">
+    <section id="graphic-design" className="py-20 sm:py-24 md:py-32 px-4 sm:px-6 relative bg-gradient-to-b from-gray-950 via-gray-900 to-gray-950">
       <div className="max-w-7xl mx-auto">
         <RevealOnScroll delay={0.1}>
-          <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-4 text-center text-white dark:text-white light:text-purple-900 light:font-extrabold">
+          <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-4 text-center text-white">
             My Graphic Design Portfolio
           </h2>
         </RevealOnScroll>
@@ -79,7 +79,7 @@ export default function GraphicDesign() {
         </RevealOnScroll>
 
         <RevealOnScroll delay={0.2}>
-          <p className="text-center text-gray-400 dark:text-gray-400 light:text-purple-800 light:font-medium text-base sm:text-lg mb-12 sm:mb-16 max-w-2xl mx-auto px-4">
+          <p className="text-center text-gray-400 text-base sm:text-lg mb-12 sm:mb-16 max-w-2xl mx-auto px-4">
             A curated collection of my graphic design work. Each piece is crafted with
             precision, creativity, and a deep understanding of visual communication.
           </p>
@@ -116,7 +116,7 @@ export default function GraphicDesign() {
                           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z" />
                         </svg>
                       </div>
-                      <span className="text-gray-400 dark:text-gray-400 light:text-gray-500 text-sm font-medium">Design Portfolio</span>
+                      <span className="text-gray-400 text-sm font-medium">Design Portfolio</span>
                     </div>
                   </div>
                   

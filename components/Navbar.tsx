@@ -2,8 +2,7 @@
 
 import { useState, useEffect } from 'react'
 import { motion, useScroll, useMotionValueEvent } from 'framer-motion'
-import { Menu, X, Sun, Moon } from 'lucide-react'
-import { useTheme } from '@/contexts/ThemeContext'
+import { Menu, X } from 'lucide-react'
 
 const navItems = [
   { name: 'About Me', href: '#about' },
@@ -16,7 +15,6 @@ export default function Navbar() {
   const [scrolled, setScrolled] = useState(false)
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
   const { scrollY } = useScroll()
-  const { theme, toggleTheme } = useTheme()
 
   useMotionValueEvent(scrollY, 'change', (latest) => {
     setScrolled(latest > 50)
@@ -63,32 +61,18 @@ export default function Navbar() {
                     e.preventDefault()
                     handleNavClick(item.href)
                   }}
-                  className="text-gray-300 dark:text-gray-300 light:text-purple-800 hover:text-indigo-400 dark:hover:text-white light:hover:text-purple-900 transition-colors duration-200 relative group"
+                  className="text-gray-300 hover:text-white transition-colors duration-200 relative group"
                 >
                   {item.name}
                   <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-gradient-to-r from-indigo-400 to-purple-400 group-hover:w-full transition-all duration-200"></span>
                 </a>
               ))}
-              <button
-                onClick={toggleTheme}
-                className="p-2 rounded-lg bg-indigo-500/10 hover:bg-indigo-500/20 text-indigo-400 transition-all duration-200 hover:scale-110 active:scale-95"
-                aria-label="Toggle theme"
-              >
-                {theme === 'dark' ? <Sun size={20} /> : <Moon size={20} />}
-              </button>
             </div>
 
             {/* Mobile Menu Button */}
-            <div className="md:hidden flex items-center gap-3">
+            <div className="md:hidden">
               <button
-                onClick={toggleTheme}
-                className="p-2 rounded-lg bg-indigo-500/10 hover:bg-indigo-500/20 text-indigo-400 transition-all duration-200 hover:scale-110 active:scale-95"
-                aria-label="Toggle theme"
-              >
-                {theme === 'dark' ? <Sun size={20} /> : <Moon size={20} />}
-              </button>
-              <button
-                className="text-white dark:text-white light:text-gray-800 transition-transform duration-200 active:scale-95"
+                className="text-white transition-transform duration-200 active:scale-95"
                 onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
               >
                 {mobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
