@@ -146,6 +146,18 @@ body {
               0 0 60px rgba(99, 102, 241, 0.2);
 }
 
+/* Image Optimization */
+img {
+  image-rendering: -webkit-optimize-contrast;
+  image-rendering: crisp-edges;
+  will-change: opacity;
+  contain: layout style paint;
+}
+
+img[loading="lazy"] {
+  content-visibility: auto;
+}
+
 /* Scroll Reveal Animation */
 .reveal {
   opacity: 0;

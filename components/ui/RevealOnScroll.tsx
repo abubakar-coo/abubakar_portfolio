@@ -17,7 +17,7 @@ export default function RevealOnScroll({
   className = '',
 }: RevealOnScrollProps) {
   const ref = useRef(null)
-  const isInView = useInView(ref, { once: true, margin: '-100px' })
+  const isInView = useInView(ref, { once: true, margin: '0px' })
 
   const directionMap = {
     up: { y: 50, x: 0 },
@@ -33,7 +33,7 @@ export default function RevealOnScroll({
       ref={ref}
       initial={{ opacity: 0, ...initial }}
       animate={isInView ? { opacity: 1, x: 0, y: 0 } : { opacity: 0, ...initial }}
-      transition={{ duration: 0.4, delay, ease: 'easeOut' }}
+      transition={{ duration: 0.25, delay: delay * 0.5, ease: 'easeOut' }}
       className={className}
     >
       {children}
