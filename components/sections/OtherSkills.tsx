@@ -1,6 +1,6 @@
 'use client'
 
-import { motion } from 'framer-motion'
+import { useEffect, useRef, useState } from 'react'
 import RevealOnScroll from '@/components/ui/RevealOnScroll'
 
 interface Skill {
@@ -38,6 +38,39 @@ const skillCategories = [
     ],
   },
 ]
+
+function ProgressBar({ level, delay }: { level: number; delay: number }) {
+  const [width, setWidth] = useState(0)
+  const ref = useRef<HTMLDivElement>(null)
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setTimeout(() => {
+            setWidth(level)
+          }, delay * 1000)
+          observer.disconnect()
+        }
+      },
+      { threshold: 0.1 }
+    )
+
+    if (ref.current) {
+      observer.observe(ref.current)
+    }
+
+    return () => observer.disconnect()
+  }, [level, delay])
+
+  return (
+    <div
+      ref={ref}
+      className="h-full bg-gradient-to-r from-blue-500 to-cyan-500 rounded-full transition-all ease-out"
+      style={{ width: `${width}%`, transitionDuration: '600ms' }}
+    />
+  )
+}
 
 export default function OtherSkills() {
   return (
@@ -98,16 +131,9 @@ export default function OtherSkills() {
                         </span>
                       </div>
                       <div className="h-2.5 bg-gray-800/50 rounded-full overflow-hidden">
-                        <motion.div
-                          className="h-full bg-gradient-to-r from-blue-500 to-cyan-500 rounded-full"
-                          initial={{ width: 0 }}
-                          whileInView={{ width: `${skill.level}%` }}
-                          viewport={{ once: true }}
-                          transition={{
-                            duration: 0.6,
-                            delay: categoryIndex * 0.1 + skillIndex * 0.05,
-                            ease: 'easeOut',
-                          }}
+                        <ProgressBar 
+                          level={skill.level} 
+                          delay={categoryIndex * 0.1 + skillIndex * 0.05}
                         />
                       </div>
                     </div>

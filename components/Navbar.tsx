@@ -1,7 +1,6 @@
 'use client'
 
 import { useState, useEffect } from 'react'
-import { motion } from 'framer-motion'
 import { Menu, X } from 'lucide-react'
 
 const navItems = [
@@ -84,14 +83,10 @@ export default function Navbar() {
       </nav>
 
       {/* Mobile Menu */}
-      <motion.div
-        initial={false}
-        animate={{
-          height: mobileMenuOpen ? 'auto' : 0,
-          opacity: mobileMenuOpen ? 1 : 0,
-        }}
-        transition={{ duration: 0.2 }}
-        className="fixed top-[70px] left-0 right-0 z-40 glass md:hidden overflow-hidden"
+      <div
+        className={`fixed top-[70px] left-0 right-0 z-40 glass md:hidden overflow-hidden transition-all duration-200 ${
+          mobileMenuOpen ? 'max-h-screen opacity-100' : 'max-h-0 opacity-0'
+        }`}
       >
         <div className="px-4 py-6 space-y-4">
           {navItems.map((item) => (
@@ -108,7 +103,7 @@ export default function Navbar() {
             </a>
           ))}
         </div>
-      </motion.div>
+      </div>
     </>
   )
 }

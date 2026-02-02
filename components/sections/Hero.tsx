@@ -36,7 +36,7 @@ export default function Hero() {
             className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-black mb-6 sm:mb-8 text-white"
             style={{ 
               fontFamily: 'var(--font-montserrat)',
-              textShadow: '0 4px 30px rgba(0, 0, 0, 0.7), 0 2px 15px rgba(0, 0, 0, 0.5), 0 0 40px rgba(0, 0, 0, 0.3)'
+              textShadow: '0 2px 20px rgba(0, 0, 0, 0.8), 0 1px 10px rgba(0, 0, 0, 0.6)'
             }}
           >
             I Create Digital Experiences
@@ -46,7 +46,7 @@ export default function Hero() {
             className="text-xl sm:text-2xl md:text-3xl font-black mb-4 sm:mb-6 text-white"
             style={{ 
               fontFamily: 'var(--font-montserrat)',
-              textShadow: '0 3px 20px rgba(0, 0, 0, 0.6), 0 1px 10px rgba(0, 0, 0, 0.4)'
+              textShadow: '0 2px 15px rgba(0, 0, 0, 0.7), 0 1px 8px rgba(0, 0, 0, 0.5)'
             }}
           >
             Abubakar Arif
@@ -59,7 +59,7 @@ export default function Hero() {
             className="text-base sm:text-lg md:text-xl lg:text-2xl text-[#CCCCCC] font-normal mb-8 sm:mb-12 max-w-3xl mx-auto leading-relaxed px-4"
             style={{ 
               fontFamily: 'var(--font-inter)',
-              textShadow: '0 2px 15px rgba(0, 0, 0, 0.6), 0 1px 8px rgba(0, 0, 0, 0.4)'
+              textShadow: '0 1px 10px rgba(0, 0, 0, 0.7), 0 1px 5px rgba(0, 0, 0, 0.5)'
             }}
           >
             Crafting premium websites and stunning graphic designs with research-backed

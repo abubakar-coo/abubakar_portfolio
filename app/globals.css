@@ -57,8 +57,6 @@ body {
   z-index: 0;
   overflow: hidden;
   background: linear-gradient(to bottom, #0f0f0f, #1a1a1a, #0f0f0f);
-  transition: background 0.3s ease;
-  will-change: background;
 }
 
 
@@ -66,11 +64,11 @@ body {
 
 /* Glassmorphism Effect - Performance Optimized */
 .glass {
-  background: rgba(15, 15, 15, 0.9);
-  backdrop-filter: blur(8px);
-  -webkit-backdrop-filter: blur(8px);
+  background: rgba(15, 15, 15, 0.95);
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
   border: 1px solid rgba(255, 255, 255, 0.1);
-  box-shadow: 0 4px 16px 0 rgba(0, 0, 0, 0.3);
+  box-shadow: 0 2px 8px 0 rgba(0, 0, 0, 0.2);
   transition: background 0.2s ease, border-color 0.2s ease;
 }
 
