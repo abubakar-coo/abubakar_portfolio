@@ -1,6 +1,5 @@
 'use client'
 
-import { motion } from 'framer-motion'
 import Button from '@/components/ui/Button'
 import RevealOnScroll from '@/components/ui/RevealOnScroll'
 
@@ -14,56 +13,62 @@ export default function Hero() {
 
   return (
     <section className="min-h-screen flex items-center justify-center relative pt-20 sm:pt-24 px-4 sm:px-6 overflow-hidden">
-      {/* Background Image */}
+      {/* Background Image - Desktop - Original Image, No Overlay */}
       <div 
-        className="absolute inset-0 z-0 bg-cover bg-center bg-no-repeat"
+        className="hidden md:block absolute inset-0 z-0 bg-cover bg-center bg-no-repeat"
         style={{
           backgroundImage: 'url(/images/hero/hero-bg.jpg)',
         }}
-      >
-        {/* Dark Overlay for text readability - 75% visibility */}
-        <div className="absolute inset-0 bg-black/75"></div>
-      </div>
+      />
+
+      {/* Background Image - Mobile - Original Image, No Overlay */}
+      <div 
+        className="md:hidden absolute inset-0 z-0 bg-cover bg-center bg-no-repeat"
+        style={{
+          backgroundImage: 'url(/images/hero/hero-bg-mobile.jpg)',
+        }}
+      />
       
       <div className="max-w-7xl mx-auto text-center relative z-10">
-        <RevealOnScroll delay={0.2}>
-          <motion.h1
-            className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold mb-6 sm:mb-8 text-white drop-shadow-2xl"
-            style={{ textShadow: '0 4px 20px rgba(0, 0, 0, 0.8), 0 2px 10px rgba(0, 0, 0, 0.6)' }}
-            initial={{ opacity: 0, y: 15 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.3, delay: 0.05, ease: 'easeOut' }}
+        <RevealOnScroll delay={0.1}>
+          {/* Primary Headline - Pure White, Montserrat Bold */}
+          <h1
+            className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-black mb-6 sm:mb-8 text-white"
+            style={{ 
+              fontFamily: 'var(--font-montserrat)',
+              textShadow: '0 4px 30px rgba(0, 0, 0, 0.7), 0 2px 15px rgba(0, 0, 0, 0.5), 0 0 40px rgba(0, 0, 0, 0.3)'
+            }}
           >
             I Create Digital Experiences
-          </motion.h1>
-          <motion.p
-            className="text-xl sm:text-2xl md:text-3xl font-semibold mb-4 sm:mb-6 text-indigo-300 drop-shadow-lg"
-            style={{ textShadow: '0 2px 10px rgba(0, 0, 0, 0.7)' }}
-            initial={{ opacity: 0, y: 8 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.3, delay: 0.1, ease: 'easeOut' }}
+          </h1>
+          {/* Name - Pure White, Montserrat Extra Bold */}
+          <p
+            className="text-xl sm:text-2xl md:text-3xl font-black mb-4 sm:mb-6 text-white"
+            style={{ 
+              fontFamily: 'var(--font-montserrat)',
+              textShadow: '0 3px 20px rgba(0, 0, 0, 0.6), 0 1px 10px rgba(0, 0, 0, 0.4)'
+            }}
           >
             Abubakar Arif
-          </motion.p>
+          </p>
         </RevealOnScroll>
 
-        <motion.p
-          className="text-base sm:text-lg md:text-xl lg:text-2xl text-gray-200 mb-8 sm:mb-12 max-w-3xl mx-auto leading-relaxed px-4 drop-shadow-md"
-          style={{ textShadow: '0 2px 8px rgba(0, 0, 0, 0.6)' }}
-          initial={{ opacity: 0, y: 8 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.3, delay: 0.15, ease: 'easeOut' }}
-        >
-          Crafting premium websites and stunning graphic designs with research-backed
-          methodology and attention to detail.
-        </motion.p>
+        <RevealOnScroll delay={0.2}>
+          {/* Secondary Text - Light Grey, Inter Regular */}
+          <p
+            className="text-base sm:text-lg md:text-xl lg:text-2xl text-[#CCCCCC] font-normal mb-8 sm:mb-12 max-w-3xl mx-auto leading-relaxed px-4"
+            style={{ 
+              fontFamily: 'var(--font-inter)',
+              textShadow: '0 2px 15px rgba(0, 0, 0, 0.6), 0 1px 8px rgba(0, 0, 0, 0.4)'
+            }}
+          >
+            Crafting premium websites and stunning graphic designs with research-backed
+            methodology and attention to detail.
+          </p>
+        </RevealOnScroll>
 
-        <motion.div
-          className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center items-center px-4"
-          initial={{ opacity: 0, y: 8 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.3, delay: 0.2, ease: 'easeOut' }}
-        >
+        <RevealOnScroll delay={0.3}>
+          <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center items-center px-4">
             <Button onClick={scrollToProjects} variant="primary">
               View My Work
             </Button>
@@ -78,7 +83,8 @@ export default function Hero() {
             >
               Learn More About Me
             </Button>
-          </motion.div>
+          </div>
+        </RevealOnScroll>
 
       </div>
     </section>

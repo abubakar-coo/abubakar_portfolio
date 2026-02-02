@@ -8,11 +8,15 @@ module.exports = {
   ],
   theme: {
     extend: {
+      fontFamily: {
+        'montserrat': ['var(--font-montserrat)', 'sans-serif'],
+        'inter': ['var(--font-inter)', 'sans-serif'],
+      },
       colors: {
         'dark-bg': '#0a0a0a',
         'dark-surface': '#151515',
-        'accent': '#6366f1',
-        'accent-hover': '#818cf8',
+        'accent': '#3b82f6',
+        'accent-hover': '#60a5fa',
       },
       animation: {
         'float': 'float 6s ease-in-out infinite',

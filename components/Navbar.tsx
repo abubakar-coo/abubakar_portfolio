@@ -1,7 +1,7 @@
 'use client'
 
 import { useState, useEffect } from 'react'
-import { motion, useScroll, useMotionValueEvent } from 'framer-motion'
+import { motion } from 'framer-motion'
 import { Menu, X } from 'lucide-react'
 
 const navItems = [
@@ -14,11 +14,15 @@ const navItems = [
 export default function Navbar() {
   const [scrolled, setScrolled] = useState(false)
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
-  const { scrollY } = useScroll()
 
-  useMotionValueEvent(scrollY, 'change', (latest) => {
-    setScrolled(latest > 50)
-  })
+  useEffect(() => {
+    const handleScroll = () => {
+      setScrolled(window.scrollY > 50)
+    }
+    
+    window.addEventListener('scroll', handleScroll, { passive: true })
+    return () => window.removeEventListener('scroll', handleScroll)
+  }, [])
 
   const handleNavClick = (href: string) => {
     setMobileMenuOpen(false)
@@ -30,12 +34,9 @@ export default function Navbar() {
 
   return (
     <>
-      <motion.nav
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ duration: 0.2 }}
-        className={`fixed top-0 left-0 right-0 z-50 transition-all duration-200 ${
-          scrolled ? 'glass py-3 shadow-lg' : 'py-5'
+      <nav
+        className={`fixed top-0 left-0 right-0 z-50 transition-all duration-150 ${
+          scrolled ? 'glass py-3' : 'py-5'
         }`}
       >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -46,7 +47,7 @@ export default function Navbar() {
                 e.preventDefault()
                 window.scrollTo({ top: 0, behavior: 'smooth' })
               }}
-              className="text-2xl font-bold bg-gradient-to-r from-indigo-400 to-purple-400 bg-clip-text text-transparent transition-transform duration-200 hover:scale-105"
+              className="text-3xl sm:text-4xl font-extrabold bg-gradient-to-r from-blue-500 to-cyan-500 bg-clip-text text-transparent transition-transform duration-200 hover:scale-105"
             >
               Portfolio
             </a>
@@ -61,10 +62,10 @@ export default function Navbar() {
                     e.preventDefault()
                     handleNavClick(item.href)
                   }}
-                  className="text-gray-300 hover:text-white transition-colors duration-200 relative group"
+                  className="text-gray-300 hover:text-white font-medium transition-colors duration-200 relative group"
                 >
                   {item.name}
-                  <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-gradient-to-r from-indigo-400 to-purple-400 group-hover:w-full transition-all duration-200"></span>
+                  <span className="absolute bottom-0 left-0 w-0 h-1 bg-gradient-to-r from-blue-500 to-cyan-500 group-hover:w-full transition-all duration-300 rounded-full"></span>
                 </a>
               ))}
             </div>
@@ -80,7 +81,7 @@ export default function Navbar() {
             </div>
           </div>
         </div>
-      </motion.nav>
+      </nav>
 
       {/* Mobile Menu */}
       <motion.div
@@ -89,7 +90,7 @@ export default function Navbar() {
           height: mobileMenuOpen ? 'auto' : 0,
           opacity: mobileMenuOpen ? 1 : 0,
         }}
-        transition={{ duration: 0.3 }}
+        transition={{ duration: 0.2 }}
         className="fixed top-[70px] left-0 right-0 z-40 glass md:hidden overflow-hidden"
       >
         <div className="px-4 py-6 space-y-4">

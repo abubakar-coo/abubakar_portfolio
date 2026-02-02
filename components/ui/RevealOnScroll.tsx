@@ -1,7 +1,6 @@
 'use client'
 
-import { useEffect, useRef, useState } from 'react'
-import { motion, useInView } from 'framer-motion'
+import { useRef, useEffect, useState } from 'react'
 
 interface RevealOnScrollProps {
   children: React.ReactNode
@@ -16,28 +15,45 @@ export default function RevealOnScroll({
   direction = 'up',
   className = '',
 }: RevealOnScrollProps) {
-  const ref = useRef(null)
-  const isInView = useInView(ref, { once: true, margin: '0px' })
+  const ref = useRef<HTMLDivElement>(null)
+  const [isVisible, setIsVisible] = useState(false)
 
-  const directionMap = {
-    up: { y: 50, x: 0 },
-    down: { y: -50, x: 0 },
-    left: { x: 50, y: 0 },
-    right: { x: -50, y: 0 },
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setTimeout(() => setIsVisible(true), delay * 100)
+          observer.disconnect()
+        }
+      },
+      { threshold: 0.1, rootMargin: '0px' }
+    )
+
+    if (ref.current) {
+      observer.observe(ref.current)
+    }
+
+    return () => observer.disconnect()
+  }, [delay])
+
+  const directionClasses = {
+    up: 'translate-y-8',
+    down: '-translate-y-8',
+    left: 'translate-x-8',
+    right: '-translate-x-8',
   }
 
-  const initial = directionMap[direction]
-
   return (
-    <motion.div
+    <div
       ref={ref}
-      initial={{ opacity: 0, ...initial }}
-      animate={isInView ? { opacity: 1, x: 0, y: 0 } : { opacity: 0, ...initial }}
-      transition={{ duration: 0.25, delay: delay * 0.5, ease: 'easeOut' }}
-      className={className}
+      className={`transition-all duration-300 ease-out ${
+        isVisible
+          ? 'opacity-100 translate-x-0 translate-y-0'
+          : `opacity-0 ${directionClasses[direction]}`
+      } ${className}`}
     >
       {children}
-    </motion.div>
+    </div>
   )
 }
 
